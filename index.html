@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qian Hao Lam — Projects</title>
+  <meta name="description" content="Portfolio of projects by Qian Hao Lam — FPGA, RISC‑V, Android, and more.">
+  <meta property="og:title" content="Qian Hao Lam — Projects" />
+  <meta property="og:description" content="FPGA • RISC‑V • SDR • UVM" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/og-card.png" />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root{
+      --bg: #0b0d10;
+      --card: #11151a;
+      --muted: #9aa4b2;
+      --text: #e8edf2;
+      --accent: #6ae3ff;
+      --ring: #2a2f36;
+      --link: #8dd3ff;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#ffffff; --card:#f6f8fa; --muted:#586069; --text:#0f172a; --accent:#0ea5e9; --ring:#e5e7eb; --link:#0366d6; }
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); }
+    .wrap{ max-width:1100px; margin:0 auto; padding:24px; }
+    header{ display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .avatar{ width:52px; height:52px; border-radius:14px; border:1px solid var(--ring); object-fit:cover; background:#222; }
+    h1{ font-size:clamp(22px, 4vw, 32px); margin:0; letter-spacing:0.2px; }
+    .tagline{ color:var(--muted); font-size:14px; margin-top:4px }
+    .links a{ text-decoration:none; padding:10px 14px; border:1px solid var(--ring); border-radius:12px; color:var(--text); display:inline-flex; align-items:center; gap:8px; }
+    .links a:hover{ border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent); }
+    .grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:18px; margin-top:22px; }
+    .card{ background:var(--card); border:1px solid var(--ring); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; min-height:320px; }
+    .thumb{ width:100%; aspect-ratio:16/9; object-fit:cover; background:#1a1f25; }
+    .body{ padding:14px 14px 8px; flex:1; display:flex; flex-direction:column; }
+    .title{ font-weight:700; font-size:17px; margin:2px 0 4px; line-height:1.25 }
+    .desc{ color:var(--muted); font-size:14px; line-height:1.35; }
+    .badges{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .badge{ font-size:12px; padding:4px 8px; border-radius:999px; border:1px solid var(--ring); color:var(--muted) }
+    .footer{ display:flex; gap:10px; padding:12px 14px 16px; }
+    .btn{ flex:1; text-align:center; text-decoration:none; padding:10px 12px; border-radius:10px; border:1px solid var(--ring); color:var(--text) }
+    .btn:hover{ border-color:var(--accent) }
+    .btn.primary{ background:linear-gradient(180deg, color-mix(in oklab, var(--accent) 25%, transparent), transparent); border-color:var(--accent) }
+    footer{ margin:26px 0 8px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+    .search{ margin-top:18px; }
+    .search input{ width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--ring); background:var(--card); color:var(--text); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <!-- Replace the avatar src with your image URL (GitHub avatar works) -->
+        <img class="avatar" src="https://avatars.githubusercontent.com/u/000000?v=4" alt="Your avatar" />
+        <div>
+          <h1>Qian Hao Lam</h1>
+          <div class="tagline">FPGA • RISC‑V • Android • SDR • UVM</div>
+        </div>
+      </div>
+      <nav class="links" aria-label="Profile links">
+        <a href="https://github.com/qiandawg">GitHub</a>
+        <a href="mailto:you@example.com">Email</a>
+        <a href="https://www.linkedin.com/in/<your-handle>">LinkedIn</a>
+      </nav>
+    </header>
+
+    <div class="search">
+      <label class="sr-only" for="search">Filter projects</label>
+      <input id="search" type="search" placeholder="Filter projects by keyword (e.g., RISC‑V, Android, SDR)…" oninput="filterCards(this.value)" />
+    </div>
+
+    <main class="grid" id="projects">
+      <!-- ======= PROJECT CARD TEMPLATE (copy/paste & edit) ======= -->
+      <article class="card" data-tags="riscv cpu fpu interrupts verilog">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/riscv-fpu.png" alt="Screenshot of RV32IMF CPU on FPGA" />
+        <div class="body">
+          <div class="title">RV32IMF CPU on FPGA</div>
+          <p class="desc">Single‑cycle → pipelined RISC‑V core with FPU, interrupts, CSR, and ILA‑driven debug; written in Verilog and verified with directed tests and UVM‑style harness.</p>
+          <div class="badges">
+            <span class="badge">RISC‑V</span><span class="badge">Verilog</span><span class="badge">FPGA</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<riscv-repo>">View Repo</a>
+          <a class="btn" href="https://<your-pages-or-demo-url>">Live Demo</a>
+        </div>
+      </article>
+
+      <article class="card" data-tags="sdr ethernet axi udp xilinx c zynq">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/sdr.png" alt="Web‑controlled SDR on FPGA screenshot" />
+        <div class="body">
+          <div class="title">Web‑Controlled SDR (FPGA + Zynq)</div>
+          <p class="desc">AXI‑Stream radio IP, FIFO buffering, UDP streaming to PC, and HTTPd control panel for tuner/ADC frequencies; C on PS + RTL on PL.</p>
+          <div class="badges">
+            <span class="badge">SDR</span><span class="badge">AXI‑Stream</span><span class="badge">C (PS)</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<sdr-repo>">View Repo</a>
+          <a class="btn" href="https://<sdr-demo-or-docs>">Docs</a>
+        </div>
+      </article>
+
+      <article class="card" data-tags="android jetpack compose kotlin offline datastore">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/android-offline-dialog.png" alt="Android offline dialog feature screenshot" />
+        <div class="body">
+          <div class="title">Android Offline Dialog + Toast</div>
+          <p class="desc">Custom dialog (first offline), toast thereafter; DataStore for state, analytics events (viewed/tapped), and documented product telemetry.</p>
+          <div class="badges">
+            <span class="badge">Android</span><span class="badge">Kotlin</span><span class="badge">Compose</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<android-repo>">View Repo</a>
+          <a class="btn" href="https://<playstore-or-demo>">Demo</a>
+        </div>
+      </article>
+
+      <article class="card" data-tags="uvm verification testbench sv">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/uvm.png" alt="UVM testbench screenshot" />
+        <div class="body">
+          <div class="title">Mini‑UVM Testbench (FIFO/AXI‑Lite)</div>
+          <p class="desc">Student‑friendly UVM 1.2 environment with sequences, scoreboard, and functional coverage targeting FIFO/AXI‑Lite DUTs.</p>
+          <div class="badges">
+            <span class="badge">SystemVerilog</span><span class="badge">UVM</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<uvm-repo>">View Repo</a>
+          <a class="btn" href="https://<docs-or-blog>">Notes</a>
+        </div>
+      </article>
+
+      <article class="card" data-tags="vivado ddr2 cache">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/ddr2-cache.png" alt="DDR2‑backed cache block diagram" />
+        <div class="body">
+          <div class="title">DDR2‑Backed Cache (Nexys A7)</div>
+          <p class="desc">Direct‑mapped cache prototype with refill/writeback FSM using MIG DDR2 controller; includes simulation + ILA captures.</p>
+          <div class="badges">
+            <span class="badge">Vivado</span><span class="badge">DDR2</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<cache-repo>">View Repo</a>
+          <a class="btn" href="https://<design-notes>">Design Notes</a>
+        </div>
+      </article>
+
+      <article class="card" data-tags="paper ieee writeup github-pages">
+        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/paper.png" alt="Paper/whitepaper preview" />
+        <div class="body">
+          <div class="title">Paper: Teaching‑Focused RISC‑V Core</div>
+          <p class="desc">IEEE‑style write‑up with micro‑architecture diagrams, CSR/exception path, and evaluation; hosted as GitHub Pages PDF.</p>
+          <div class="badges">
+            <span class="badge">Paper</span><span class="badge">Diagrams</span>
+          </div>
+        </div>
+        <div class="footer">
+          <a class="btn primary" href="https://github.com/qiandawg/<paper-repo>">View Repo</a>
+          <a class="btn" href="https://<raw-pdf-url>">Read PDF</a>
+        </div>
+      </article>
+      <!-- ======= /END TEMPLATE ======= -->
+    </main>
+
+    <footer>
+      <span>Last updated: <span id="updated"></span></span>
+      <span>Built with plain HTML/CSS. No frameworks. Fast to edit.</span>
+    </footer>
+  </div>
+
+<script>
+  // Quick filter by keywords in data-tags or title/desc
+  const cards = Array.from(document.querySelectorAll('.card'));
+  function filterCards(q){
+    const term = (q||'').trim().toLowerCase();
+    for (const el of cards){
+      const hay = (el.dataset.tags + ' ' + el.textContent).toLowerCase();
+      el.style.display = hay.includes(term) ? '' : 'none';
+    }
+  }
+  // Last updated = file build time (fallback to today)
+  const d = new Date(document.lastModified || Date.now());
+  document.getElementById('updated').textContent = d.toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+</script>
+</body>
+</html>
