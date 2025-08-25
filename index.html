@@ -74,39 +74,40 @@
       <input id="search" type="search" placeholder="Filter projects by keyword (e.g., RISC‑V, SDR)…" oninput="filterCards(this.value)" />
     </div>
 
-    <main class="grid" id="projects">
-      <!-- ======= PROJECT CARD TEMPLATE (copy/paste & edit) ======= -->
-      <article class="card" data-tags="riscv cpu fpu interrupts verilog">
-        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/riscv-fpu.png" alt="Screenshot of RV32IMF CPU on FPGA" />
-        <div class="body">
-          <div class="title">RV32IMF CPU on FPGA</div>
-          <p class="desc">Single‑cycle → pipelined RISC‑V core with FPU, interrupts, CSR, and ILA‑driven debug; written in Verilog and verified with directed tests and UVM‑style harness.</p>
-          <div class="badges">
-            <span class="badge">RISC‑V</span><span class="badge">Verilog</span><span class="badge">FPGA</span>
-          </div>
-        </div>
-        <div class="footer">
-          <a class="btn primary" href="https://github.com/qiandawg/<riscv-repo>">View Repo</a>
-          <a class="btn" href="https://<your-pages-or-demo-url>">Live Demo</a>
-        </div>
-      </article>
+	<main class="grid" id="projects">
+	  <!-- ======= PROJECT CARD ======= -->
+	  <article class="card" data-tags="riscv cpu fpu interrupts verilog">
+		<img class="thumb" src="FPU_FPGA_results.jpeg" alt="FPGA running FPU test program" />
+		<div class="body">
+		  <div class="title">RV32IMF CPU on FPGA</div>
+		  <p class="desc">Single-cycle → pipelined RISC-V core with FPU, interrupts, CSR, and ILA-driven debug; written in Verilog and verified with directed tests and UVM-style harness.</p>
+		  <div class="badges">
+			<span class="badge">RISC-V</span><span class="badge">Verilog</span><span class="badge">FPGA</span>
+		  </div>
+		</div>
+		<div class="footer">
+		  <a class="btn primary" href="https://github.com/qiandawg/riscv-fpu-interrupt">View Repo</a>
+		  <a class="btn" href="riscv-fpu-interrupts_paper.pdf" target="_blank" rel="noopener">Read PDF</a>
+		</div>
+	  </article>
 
-      <article class="card" data-tags="sdr ethernet axi udp xilinx c zynq">
-        <img class="thumb" src="https://raw.githubusercontent.com/qiandawg/portfolio/main/assets/sdr.png" alt="Web‑controlled SDR on FPGA screenshot" />
-        <div class="body">
-          <div class="title">Web‑Controlled SDR (FPGA + Zynq)</div>
-          <p class="desc">AXI‑Stream radio IP, FIFO buffering, UDP streaming to PC, and HTTPd control panel for tuner/ADC frequencies; C on PS + RTL on PL.</p>
-          <div class="badges">
-            <span class="badge">SDR</span><span class="badge">AXI‑Stream</span><span class="badge">C (PS)</span>
-          </div>
-        </div>
-        <div class="footer">
-          <a class="btn primary" href="https://github.com/qiandawg/<sdr-repo>">View Repo</a>
-          <a class="btn" href="https://<sdr-demo-or-docs>">Docs</a>
-        </div>
-      </article>
-      <!-- ======= /END TEMPLATE ======= -->
-    </main>
+	  <article class="card" data-tags="sdr ethernet axi udp xilinx c zynq">
+		<img class="thumb" src="sdr_block_design.png" alt="Web-controlled SDR on FPGA screenshot" />
+		<div class="body">
+		  <div class="title">Web-Controlled SDR (FPGA + Zynq)</div>
+		  <p class="desc">AXI-Stream radio IP, FIFO buffering, UDP streaming to PC, and HTTPd control panel for tuner/ADC frequencies; C on PS + RTL on PL.</p>
+		  <div class="badges">
+			<span class="badge">SDR</span><span class="badge">AXI-Stream</span><span class="badge">C (PS)</span>
+		  </div>
+		</div>
+		<div class="footer">
+		  <a class="btn primary" href="https://github.com/qiandawg/rtl-SDR-fpga">View Repo</a>
+		  <a class="btn" href="SDR_Demo.mp4" target="_blank" rel="noopener">MP4 demo</a>
+		</div>
+	  </article>
+	  <!-- ======= /END TEMPLATE ======= -->
+	</main>
+
 
     <footer>
       <span>Last updated: <span id="updated"></span></span>
